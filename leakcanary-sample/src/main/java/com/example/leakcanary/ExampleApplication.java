@@ -19,6 +19,14 @@ import android.app.Application;
 import android.os.StrictMode;
 import com.squareup.leakcanary.LeakCanary;
 
+
+/**
+ * 在install方法之前有个判断，主要是用来判断进程的。
+ *
+ * 这个方法最终会调用LeakCanaryInternals#isInServiceProcess，通过PackageManager、ActivityManager以及android.os.Process来判断当前进程是否为HeapAnalyzerService运行的进程。
+ *
+ *
+ */
 public class ExampleApplication extends Application {
   @Override public void onCreate() {
     super.onCreate();
